@@ -1,0 +1,116 @@
+unit uPESSOA;
+
+interface
+
+uses uTIPOPESSOA;
+
+type
+  TPessoa = class
+
+  private
+    FNome:     string;
+    FTipo:     TTipoPessoa;
+    FCnpjCpf:  string;
+    FTelefone: string;
+
+  public
+    property Nome:     string      read FNome     write FNome;
+    property Tipo:     TTipoPessoa read FTipo     write FTipo;
+    property CnpjCpf:  string      read FCnpjCpf  write FCnpjCpf;
+    property Telefone: string      read FTelefone write FTelefone;
+
+    //FUNCTION
+    function ToString(): string;
+
+    //PROCEDURE
+    procedure SolicitarDados();
+
+    //CONSTRUCTOR
+    constructor Create();
+
+
+  end;
+
+var
+vTexto : string;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+  FNome := '';
+  FCnpjCpf := '';
+  FTelefone := '';
+  FTipo := TTipoPessoa.Fisica;
+end;
+
+procedure TPessoa.SolicitarDados;
+var
+vPessoa :TPessoa;
+begin
+try
+  vPessoa := TPessoa.Create();
+  writeln('Nome: ');
+  Readln(vTexto);
+  FNome := vTexto;
+
+  writeln('Telefone: ');
+  readln(vTexto);
+  Telefone := vTexto;
+
+  //ENQUANTO O VALOR FOR INVÁLIDO VAI CONTINUAR PEDINDO
+  while not ((vTexto = '1') or (vTexto = '2')) do
+  begin
+  writeln('Tipo de pessoa (1 - Fisica / 2 - Juridica):');
+  readln(vTexto);
+  if vTexto = '1' then
+    Tipo := TTipoPessoa.Fisica
+  else if vTexto = '2' then
+    Tipo := TTipoPessoa.Juridica
+  else
+    write('Digite um valor valido');
+  end;
+
+  //SE FOR PESSOA FISICA PEDE CPF, SE NÃO CNPJ, POIS NÃO DEIXA INFORMAR OUTRO VALOR
+  if FTipo = TTipoPessoa.Fisica then
+    begin
+      writeln('CPF: ');
+      readln(vTexto);
+      FCnpjCpf := vTexto;
+    end else
+    begin
+      writeln('CNPJ: ');
+      readln(vTexto);
+      FCnpjCpf := vTexto;
+    end;
+except
+ vPessoa.Free();
+end;
+end;
+
+function TPessoa.ToString: string;
+var
+  vTipoPessoa:    string;
+  vTipoDocumento: string;
+begin
+  if FTipo = TTipoPessoa.Fisica then
+  begin
+    vTipoPessoa:=    'Física';
+    vTipoDocumento:= 'CPF';
+  end
+  else
+  begin
+    vTipoPessoa:=    'Jurídica';
+    vTipoDocumento:= 'CNPJ';
+  end;
+
+  Result:= '---------------------- PESSOA ----------------------' + sLineBreak +
+           'Nome: '              + FNome                          + sLineBreak +
+           'Tipo: '              + vTipoPessoa                    + sLineBreak +
+           vTipoDocumento + ': ' + FCnpjCpf                       + sLineBreak +
+           'Telefone: '          + FTelefone ;
+end;
+
+end.

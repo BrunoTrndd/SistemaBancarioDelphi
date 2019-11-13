@@ -1,0 +1,14 @@
+unit IInterfaceBanco;
+
+interface
+
+type
+ IInterfaceBanco = interface
+   procedure SolicitarDados;
+   function ToString();
+ end;
+
+
+implementation
+
+end.

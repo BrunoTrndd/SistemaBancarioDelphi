@@ -1,0 +1,54 @@
+unit uPESSOA;
+
+interface
+
+uses uTIPOPESSOA;
+
+type
+  TPessoa = class
+
+  private
+    FNome:     string;
+    FTipo:     TTipoPessoa;
+    FCnpjCpf:  string;
+    FTelefone: string;
+
+  public
+    property Nome:     string      read FNome     write FNome;
+    property Tipo:     TTipoPessoa read FTipo     write FTipo;
+    property CnpjCpf:  string      read FCnpjCpf  write FCnpjCpf;
+    property Telefone: string      read FTelefone write FTelefone;
+
+    //FUNCTION
+    function ToString(): string;
+
+  end;
+
+implementation
+
+{ TPessoa }
+
+function TPessoa.ToString: string;
+var
+  vTipoPessoa:    string;
+  vTipoDocumento: string;
+begin
+  if FTipo = TTipoPessoa.Fisica then
+  begin
+    vTipoPessoa:=    'Física';
+    vTipoDocumento:= 'CPF';
+  end
+  else
+  begin
+    vTipoPessoa:=    'Jurídica';
+    vTipoDocumento:= 'CNPJ';
+  end;
+
+  Result:= '---------------------- PESSOA ----------------------' + sLineBreak +
+           'Nome: '              + FNome                          + sLineBreak +
+           'Tipo: '              + vTipoPessoa                    + sLineBreak +
+           vTipoDocumento + ': ' + FCnpjCpf                       + sLineBreak +
+           'Telefone: '          + FTelefone ;
+end;
+
+end.

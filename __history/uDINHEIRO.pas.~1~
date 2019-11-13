@@ -1,0 +1,33 @@
+unit uDINHEIRO;
+
+interface
+uses SysUtils;
+type
+  TDinheiro = class
+
+  private
+    FNome:  string;
+    FValor: Currency;
+
+  public
+    property Nome:  string read FNome  write FNome;
+    property Valor: currency read FValor write FValor;
+
+    //FUNCTION
+    function ToString(): string;
+
+
+  end;
+
+implementation
+
+{ TDinheiro }
+
+function TDinheiro.ToString: string;
+begin
+  Result:= '---------------------- DINHEIRO ----------------------' + sLineBreak +
+           'Nome: '  + FNome                                        + sLineBreak +
+           'Valor: ' + FormatCurr('#.##0,00',FValor);
+end;
+
+end.

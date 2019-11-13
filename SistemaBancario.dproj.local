@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/30 09:37:56.000.593,C:\Users\Administrador\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Administrador\Documents\RAD Studio\Projects\SistemaBancario.dproj</Transaction>
+    <Transaction>2019/10/30 09:38:01.000.142,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:38:08.000.918,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uBanco.pas</Transaction>
+    <Transaction>2019/10/30 09:38:12.000.684,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:38:20.000.457,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uPESSOA.pas</Transaction>
+    <Transaction>2019/10/30 09:38:24.000.334,C:\Users\Administrador\Documents\RAD Studio\Projects\uBanco.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\AA.pas</Transaction>
+    <Transaction>2019/10/30 09:38:29.000.351,C:\Users\Administrador\Documents\RAD Studio\Projects\AA.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uBANCO.pas</Transaction>
+    <Transaction>2019/10/30 09:38:33.000.348,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:38:43.000.826,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uDINHEIRO.pas</Transaction>
+    <Transaction>2019/10/30 09:38:48.000.275,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:39:01.000.842,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uCONTA.pas</Transaction>
+    <Transaction>2019/10/30 09:39:09.000.058,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:39:15.000.450,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uTIPOPESSOA.pas</Transaction>
+    <Transaction>2019/10/30 09:39:46.000.171,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:41:20.000.809,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uCONTAPRODUTO.pas</Transaction>
+    <Transaction>2019/10/30 09:41:33.000.978,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:41:45.000.019,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uPRODUTO.pas</Transaction>
+    <Transaction>2019/10/30 09:41:57.000.723,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:42:07.000.737,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uTIPOMOVIMENTACAO.pas</Transaction>
+    <Transaction>2019/10/30 09:42:13.000.220,=C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/30 09:42:20.000.852,C:\Users\Administrador\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Administrador\Documents\RAD Studio\Projects\uMOVIMENTACAO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:05.000.453,C:\Users\Administrador\Documents\RAD Studio\Projects\uMOVIMENTACAO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uMOVIMENTACAO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:07.000.805,C:\Users\Administrador\Documents\RAD Studio\Projects\uTIPOMOVIMENTACAO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uTIPOMOVIMENTACAO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:08.000.509,C:\Users\Administrador\Documents\RAD Studio\Projects\uPRODUTO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uPRODUTO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:09.000.206,C:\Users\Administrador\Documents\RAD Studio\Projects\uCONTAPRODUTO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uCONTAPRODUTO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:09.000.914,C:\Users\Administrador\Documents\RAD Studio\Projects\uTIPOPESSOA.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uTIPOPESSOA.pas</Transaction>
+    <Transaction>2019/10/30 09:44:10.000.652,C:\Users\Administrador\Documents\RAD Studio\Projects\uCONTA.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uCONTA.pas</Transaction>
+    <Transaction>2019/10/30 09:44:11.000.350,C:\Users\Administrador\Documents\RAD Studio\Projects\uDINHEIRO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uDINHEIRO.pas</Transaction>
+    <Transaction>2019/10/30 09:44:12.000.105,C:\Users\Administrador\Documents\RAD Studio\Projects\uPESSOA.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uPESSOA.pas</Transaction>
+    <Transaction>2019/10/30 09:44:13.000.999,C:\Users\Administrador\Documents\RAD Studio\Projects\SistemaBancario.dproj=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\SistemaBancario.dproj</Transaction>
+    <Transaction>2019/10/30 09:44:13.000.145,C:\Users\Administrador\Documents\RAD Studio\Projects\uBANCO.pas=C:\Users\Administrador\Desktop\Laura - Treinamento\ProjetoSistemaBancario\uBANCO.pas</Transaction>
+    <Transaction>2019/10/31 23:32:44.000.149,=D:\Escala Treinamento\Laura - Treinamento\ProjetoSistemaBancario\Unit1.pas</Transaction>
+    <Transaction>2019/10/31 23:39:22.000.546,D:\Escala Treinamento\Laura - Treinamento\ProjetoSistemaBancario\IInterfaceBanco.pas=D:\Escala Treinamento\Laura - Treinamento\ProjetoSistemaBancario\Unit1.pas</Transaction>
+    <Transaction>2019/11/01 18:19:16.000.469,C:\Users\Bruno Trindade\Downloads\Laura - Treinamento\Laura - Treinamento\ProjetoSistemaBancario\uIInterfaceBanco.pas=</Transaction>
+    <Transaction>2019/11/01 18:19:22.000.998,=C:\Users\Bruno Trindade\Downloads\Laura - Treinamento\Laura - Treinamento\ProjetoSistemaBancario\Unit1.pas</Transaction>
+    <Transaction>2019/11/01 18:22:41.000.083,C:\Users\Bruno Trindade\Downloads\Laura - Treinamento\Laura - Treinamento\ProjetoSistemaBancario\Unit1.pas=C:\Users\Bruno Trindade\Downloads\Laura - Treinamento\Laura - Treinamento\ProjetoSistemaBancario\uInterface.pas</Transaction>
+    <Transaction>2019/11/11 10:20:18.000.255,=C:\Users\escalasoft\Documents\RAD Studio\Projects\SistemaBancario-Bruno\ProjetoSistemaBancario\Unit1.pas</Transaction>
+    <Transaction>2019/11/11 10:21:25.000.873,C:\Users\escalasoft\Documents\RAD Studio\Projects\SistemaBancario-Bruno\ProjetoSistemaBancario\uPROGRAMA.pas=C:\Users\escalasoft\Documents\RAD Studio\Projects\SistemaBancario-Bruno\ProjetoSistemaBancario\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="uBANCO.pas"/>
+    <File Path="uPESSOA.pas"/>
+    <File Path="uDINHEIRO.pas"/>
+    <File Path="uCONTA.pas"/>
+    <File Path="uTIPOPESSOA.pas"/>
+    <File Path="uCONTAPRODUTO.pas"/>
+    <File Path="uPRODUTO.pas"/>
+    <File Path="uTIPOMOVIMENTACAO.pas"/>
+    <File Path="uMOVIMENTACAO.pas"/>
+    <File Path="uInterface.pas"/>
+    <File Path="uPROGRAMA.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

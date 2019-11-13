@@ -1,0 +1,100 @@
+unit uMOVIMENTACAO;
+
+interface
+
+uses Generics.Collections, SysUtils, uDINHEIRO, uTIPOMOVIMENTACAO;
+
+type
+  TMovimentacao = class
+
+  private
+    FDinheiros:  TList<TDinheiro>;
+    FValorTotal: Currency;
+    FTipo:       TTipoMovimentacao;
+    FData:       TDateTime;
+
+  public
+    destructor Destroy; override;
+    property Dinheiros:  TList<TDinheiro>  read FDinheiros;
+    property ValorTotal: Currency          read FValorTotal write FValorTotal;
+    property Tipo:       TTipoMovimentacao read FTipo       write FTipo;
+    property Data:       TDateTime         read FData       write FData;
+
+  //FUNCTION
+  function ToString(): string;
+
+  //CONSTRUCTOR
+  constructor Create(const prDinheiros : TList<TDinheiro>); override;
+
+  //DESTRUCTOR
+
+
+  end;
+
+var
+vDinheiro : TDinheiro;
+
+implementation
+
+{ TMovimentacao }
+
+
+
+
+
+
+
+
+
+constructor TMovimentacao.Create(const prDinheiros : TList<TDinheiro>);
+begin
+  FDinheiros := prDinheiros;
+  FValorTotal:= 0;
+  FTipo      := nil;
+  FData      := 0;
+
+end;
+
+destructor TMovimentacao.Destroy;
+begin
+  inherited;
+end;
+
+function TMovimentacao.ToString: string;
+var
+  vTipoMovimentacao: string;
+begin
+  case Integer(FTipo) of
+  0:
+  begin
+    vTipoMovimentacao:= 'Credito';
+  end;
+  1:
+  begin
+    vTipoMovimentacao:= 'Debito';
+  end;
+  2:
+  begin
+    vTipoMovimentacao:= 'Juros Acrescimo';
+  end;
+  3:
+  begin
+    vTipoMovimentacao:= 'Juros Desconto';
+  end;
+  4:
+  begin
+    vTipoMovimentacao:= 'Taxa Administracao';
+  end;
+  5:
+  begin
+    vTipoMovimentacao:= 'Taxa de Saque Mensal Excedente';
+  end;
+  end;
+
+  Result:= '---------------------- MOVIMENTACAO ----------------------'                        + sLineBreak +
+           'Valor Total: ' + FormatCurr('#.##0,00',FValorTotal)                                + sLineBreak +
+           'Tipo: '        + vTipoMovimentacao                                                 + sLineBreak +
+           'Data: '        + FormatDateTime('dd-mm-yyyy', FData);
+end;
+
+end.

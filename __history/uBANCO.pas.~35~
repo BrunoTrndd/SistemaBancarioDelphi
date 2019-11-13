@@ -1,0 +1,357 @@
+unit uBANCO;
+
+interface
+
+uses Generics.Collections,SysUtils, uPRODUTO, uCONTA, uDINHEIRO, uIInterfaceBanco, uPROGRAMA;
+
+type
+  TBanco = class (TPrograma)
+
+  private
+    FNome:      string;
+    FContas:    TList<TConta>;
+    FProdutos:  TList<TProduto>;
+    FDinheiros: TDictionary<TDinheiro, Integer>;
+
+
+  public
+    property Nome:      string                          read FNome write FNome;
+    property Contas:    TList<TConta>                   read FContas;
+    property Produtos:  TList<TProduto>                 read FProdutos;
+    property Dinheiros: TDictionary<TDinheiro, Integer> read FDinheiros;
+
+    //FUNCTION
+    function ToString(): string;
+    function GetChave(): string;
+    function ValidarProduto(const prProdutoNome:string):Boolean;
+    function GetConta(const prContaNumero : Integer): TConta;
+    function GetProduto (const prProdutoNome : string): TProduto;
+
+
+    //PROCEDURE
+    procedure SolicitaDados();
+    procedure CadastrarProduto();
+    procedure AlterarProduto(prProduto : TProduto);
+    procedure CadastrarConta();
+    procedure MovimentarDinheiro();
+    procedure CadastrarContaProduto(const prConta : TConta; const prProduto : TProduto);
+
+
+
+    //CONSTRUCTOR
+    constructor Create();
+
+    //DESTRUCTOR
+    destructor Destroy();
+
+
+  end;
+
+var
+vTexto  : string;
+vNumero : Integer;
+vConta  : TConta;
+implementation
+
+{ TBanco }
+
+
+//------------------------PRODUTO
+//CADASTRA PRODUTO
+procedure TBanco.CadastrarProduto;
+var
+vProduto : TProduto;
+begin
+
+  writeln('Nome do produto');
+  readln(vTexto);
+
+  for vProduto in Produtos do
+  begin
+    if(vProduto.Nome = vTexto) then
+    begin
+      raise Exception.Create('Produto ja existente, utilize outro nome');
+    end;
+  end;
+
+
+  try
+    vProduto := TProduto.Create;
+    vProduto.Nome := vTexto;
+
+    writeln('Juros de acrescimo do produto');
+    readln(vTexto);
+    vProduto.JurosAcrescimo := StrToCurr(vTexto);
+
+    writeln('Juros de desconto do produto');
+    readln(vTexto);
+    vProduto.JurosDesconto := StrToCurr(vTexto);
+
+    writeln('Limite de saque diario do produto');
+    readln(vTexto);
+    vProduto.LimiteSaqueDiario := StrToCurr(vTexto);
+
+    writeln('Limite de saque mensal do produto');
+    readln(vTexto);
+    vProduto.LimiteSaqueMensal := StrToInt(vTexto);
+
+    writeln('Taxa de excedente mensal do produto');
+    readln(vTexto);
+    vProduto.TaxaExcedenteMensal := StrToCurr(vTexto);
+
+    writeln('Taxa de administracao do produto');
+    readln(vTexto);
+    vProduto.TaxaAdministracao := StrToCurr(vTexto);
+
+    Produtos.Add(vProduto);
+    Writeln('Produto cadastrado com sucesso!');
+
+  except
+    vProduto.Free;
+  end;
+
+end;
+
+//----ALTERA PRODUTO
+procedure TBanco.AlterarProduto(prProduto:TProduto);
+begin
+    writeln('Novo nome do produto');
+    readln(vTexto);
+    prProduto.Nome := vTexto;
+
+    writeln('Novo juros de acrescimo do produto');
+    readln(vTexto);
+    prProduto.JurosAcrescimo := StrToCurr(vTexto);
+
+    writeln('Novo juros de desconto do produto');
+    readln(vTexto);
+    prProduto.JurosDesconto := StrToCurr(vTexto);
+
+    writeln('Novo limite de saque diario do produto');
+    readln(vTexto);
+    prProduto.LimiteSaqueDiario := StrToCurr(vTexto);
+
+    writeln('Novo limite de saque mensal do produto');
+    readln(vTexto);
+    prProduto.LimiteSaqueMensal := StrToInt(vTexto);
+
+    writeln('Nova taxa de excedente mensal do produto');
+    readln(vTexto);
+    prProduto.TaxaExcedenteMensal := StrToCurr(vTexto);
+
+    writeln('Nova taxa de administracao do produto');
+    readln(vTexto);
+    prProduto.TaxaAdministracao := StrToCurr(vTexto);
+
+end;
+
+//------CONTA
+//CADASTRAR CONTA
+procedure TBanco.CadastrarConta;
+var
+vConta   : TConta;
+vProduto : TProduto;
+vFinal   : boolean;
+begin
+  try
+    vConta := TConta.Create();
+    vNumero := vNumero + 1;
+    vConta.Numero := vNumero;
+    vProduto := TProduto.Create();
+    vFinal := False;
+    //SOLICITA DADOS DA PESSOA
+    writeln('Dados da Pessoa:' );
+    vConta.Pessoa.SolicitarDados();
+    vConta.Competencia := GetCompetencia('Competencia');
+
+    while not vFinal  do
+    begin
+      writeln('Qual produto deseja utilizar?');
+      readln(vTexto);
+      if(Produtos.Count = 0) then
+      begin
+        raise Exception.Create('Nao ha produtos cadastrados');
+      end else
+      begin
+        for vProduto in Produtos do
+        begin
+          if(vTexto = vProduto.Nome) then
+          begin
+
+            vConta.CadastrarContaProduto(vProduto);
+            Writeln('Produto cadastrado na conta com sucesso!');
+            vFinal := True;
+          end else
+          begin
+            writeln('Produto nao encontado, deseja pesquisa novamente? (sim/nao)');
+            readln(vTexto);
+            if(vTexto = 'sim') then
+            begin
+              vFinal := False;
+            end else
+            begin
+              vFinal := True;
+            end;
+          end;
+        end;
+
+      end;
+
+    end;
+
+    FContas.Add(vConta);
+    Writeln('Conta '+ IntToStr(vNumero) + ' cadastrada com sucesso!');
+
+
+  except
+    on E : Exception do
+    begin
+      Writeln(E.ClassName, ': ', E.Message);
+      vConta.Free();
+    end;
+  end;
+
+end;
+
+
+procedure TBanco.CadastrarContaProduto();
+begin
+
+
+  prConta.ContaProdutos.Add(prProduto);
+end;
+
+constructor TBanco.Create;
+begin
+  FNome := '';
+  FProdutos  := TList<TProduto>.Create;
+  FContas    := TList<TConta>.Create;
+  FDinheiros := TDictionary<TDinheiro, Integer>.Create;
+end;
+
+destructor TBanco.Destroy;
+var
+vConta : TConta;
+vProduto : TProduto;
+vDinheiro : TDinheiro;
+begin
+    for vConta in FContas do
+      vConta.Free;
+    for vProduto in FProdutos do
+      vProduto.Free;
+end;
+
+
+function TBanco.GetChave: string;
+begin
+  Result := FNome;
+end;
+
+function TBanco.GetConta(const prContaNumero : Integer): TConta;
+begin
+  for vConta in Contas do
+  begin
+    if(vConta.Numero = prContaNumero) then
+    begin
+      Result := vConta;
+    end;
+  end;
+    
+end;
+
+function TBanco.GetProduto(const prProdutoNome: string): TProduto;
+var
+vProduto : TProduto;
+begin
+  for vProduto in Produtos do
+  begin
+    if(prProdutoNome = vProduto.Nome)then
+    begin
+      Result := vProduto;
+    end;
+  end;
+end;
+
+
+procedure TBanco.MovimentarDinheiro;
+var
+vEscolha : integer;
+begin
+vEscolha := 99;
+case vEscolha of
+         20:
+         begin
+
+         end;
+
+         21:
+         begin
+
+         end;
+
+         22:
+         begin
+
+         end;
+
+         23:
+         begin
+
+         end;
+
+         24:
+         begin
+
+         end;
+
+         25:
+         begin
+
+         end;
+
+         else
+         begin
+           Writeln('Digite um valor valido, para retornar ao menu, digite 0');
+         end;
+
+         end;
+end;
+
+procedure TBanco.SolicitaDados();
+var
+vBanco : TBanco;
+begin
+  writeln('Nome do banco: ');
+  Readln(vTexto);
+  FNome := vTexto;
+end;
+
+
+
+
+
+
+
+
+
+function TBanco.ToString: string;
+begin
+  Result:= '---------------------- BANCO ----------------------' + sLineBreak +
+           'Nome: ' + FNome                                      + sLineBreak;
+end;
+
+function TBanco.ValidarProduto(const prProdutoNome:string): Boolean;
+var
+vProduto : TProduto;
+begin
+  for vProduto in Produtos do
+    begin
+      if(vProduto.Nome = prProdutoNome) then
+      begin
+        Result := True;      
+      end;
+    end;
+    Result := False;
+end;
+
+end.

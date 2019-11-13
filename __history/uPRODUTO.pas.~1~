@@ -1,0 +1,46 @@
+unit uPRODUTO;
+
+interface
+uses SysUtils;
+type
+  TProduto = class
+
+  private
+    FNome:                     string;
+    FJurosAcrescimo:           Currency;
+    FJurosDesconto:            Currency;
+    FLimiteSaqueDiario:        Currency;
+    FLimiteSaqueMensal:        Integer;
+    FTaxaSaqueExcedenteMensal: Currency;
+    FTaxaAdministracao:        Currency;
+
+  public
+    property Nome:                string   read FNome                     write FNome;
+    property JurosAcrescimo:      Currency read FJurosAcrescimo           write FJurosAcrescimo;
+    property JurosDesconto:       Currency read FJurosDesconto            write FJurosDesconto;
+    property LimiteSaqueDiario:   Currency read FLimiteSaqueDiario        write FLimiteSaqueDiario;
+    property LimiteSaqueMensal:   Integer  read FLimiteSaqueMensal        write FLimiteSaqueMensal;
+    property TaxaExcedenteMensal: Currency read FTaxaSaqueExcedenteMensal write FTaxaSaqueExcedenteMensal;
+    property TaxaAdministracao:   Currency read FTaxaAdministracao        write FTaxaAdministracao;
+
+    //FUNCTION
+    function ToString(): string;
+  end;
+
+implementation
+
+{ TProduto }
+
+function TProduto.ToString: string;
+begin
+  Result:= '---------------------- PRODUTO ----------------------'                               + sLineBreak +
+           'Nome: '                           + FNome                                            + sLineBreak +
+           'Juros Acréscimo: '                + FormatCurr('#.##0,00',FJurosAcrescimo)           + sLineBreak +
+           'Juros Desconto: '                 + FormatCurr('#.##0,00',FJurosDesconto)            + sLineBreak +
+           'Limite do Saque Diario: '         + FormatCurr('#.##0,00',FLimiteSaqueDiario)        + sLineBreak +
+           'Limite de Saque Mensal: '         + FormatCurr('#.##0,00',FLimiteSaqueMensal)        + sLineBreak +
+           'Taxa de Saque Mensal Excedente: ' + FormatCurr('#.##0,00',FTaxaSaqueExcedenteMensal) + sLineBreak +
+           'Taxa de Administracao: '          + FormatCurr('#.##0,00',FTaxaAdministracao) ;
+end;
+
+end.
